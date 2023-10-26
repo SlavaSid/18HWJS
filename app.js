@@ -24,16 +24,44 @@ name.forEach((element, index) => {
             <a href="#" class="btin">Написать ему</a>
           </div>`};
 
-
           
+          
+
+
+
  ul.addEventListener('click', (event) => {
     nameHaupt.textContent = '';
+    const activeSrc = event.target.getAttribute('data-item');
+    console.log(activeSrc);
     if(event.target.matches('li')){
-        const activeSrc = event.target.getAttribute('data-item');
+        const url1 = 'https://jsonplaceholder.typicode.com/users';
+        fetch(url1)
+        .then(response => {
+            if(!response.ok){
+                throw new Error('ошибка статус-кода')
+            } return response.json()
+            
+        })
+        .then(data => {console.log(data)
+        addCard(data);
+        
+        })
+        .catch(error => {
+            console.error(error)
+        }) }
     
-        
-        
-           }});
+        const addCard = (data) =>{console.log(data[activeSrc]);
+            nameHaupt.innerHTML = `
+            <div class="name-card">
+                    <h5 class="name-card">${data[activeSrc].name}</h5>
+                    <p class="name-texttop">${data[activeSrc].username}</p>
+                    <p class="name-text">Street:${data[activeSrc].address.street}, Suite:${data[activeSrc].address.suite}, City:${data[activeSrc].address.city}, Zipcode:${data[activeSrc].address.zipcode}</p>
+                    <p class="name-text">${data[activeSrc].company.name}</p>
+                    <a href="#" class="btin">Написать ему</a>
+                  </div>`};
+            
+                     
+    });
         
 
 
