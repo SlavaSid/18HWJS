@@ -2,7 +2,7 @@ const url = 'https://jsonplaceholder.typicode.com/users';
 
 const ul = document.querySelector('.list-group');
 const nameHaupt = document.querySelector('.name-haupt');
-const li = document.querySelector('li')
+const li = document.querySelector('li');
 
 
 const addName  = (name)=>
@@ -32,7 +32,7 @@ name.forEach((element, index) => {
  ul.addEventListener('click', (event) => {
     nameHaupt.textContent = '';
     const activeSrc = event.target.getAttribute('data-item');
-    console.log(activeSrc);
+    
     if(event.target.matches('li')){
         const url1 = 'https://jsonplaceholder.typicode.com/users';
         fetch(url1)
@@ -42,15 +42,13 @@ name.forEach((element, index) => {
             } return response.json()
             
         })
-        .then(data => {console.log(data)
-        addCard(data);
-        
-        })
+        .then(data => addCard(data))
         .catch(error => {
             console.error(error)
         }) }
     
-        const addCard = (data) =>{console.log(data[activeSrc]);
+        const addCard = (data) =>{
+
             nameHaupt.innerHTML = `
             <div class="name-card">
                     <h5 class="name-card">${data[activeSrc].name}</h5>
