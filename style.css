@@ -22,8 +22,8 @@ body {
 .card {
 height: 410px;
 }
-li:active {
-    background-color: rgba(52, 129, 245, 0.74);
+li{
+    
     cursor: pointer;
 }
 .name-haupt{
@@ -52,4 +52,8 @@ p {
     font-weight: bold;
     padding-left: 7px;
 
+}
+.active {
+    background-color: rgba(52, 129, 245, 0.74);
+    
 }
