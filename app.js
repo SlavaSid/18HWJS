@@ -10,7 +10,7 @@ console.log(name);
 name.forEach((element, index) => {
     if(index === 0){
         ul.innerHTML = `<li class="list-group-item active" data-item="${index}">${element.name}</li>`;
-    } else {    ul.innerHTML += `<li class="list-group-item" data-item="${index}">${element.name}</li>`;
+    } else {ul.innerHTML += `<li class="list-group-item" data-item="${index}">${element.name}</li>`;
 }
     })};
 console.log('li');
@@ -27,14 +27,11 @@ console.log('li');
   
  ul.addEventListener('click', (event) => {
     nameHaupt.textContent = '';
-        
+    li.forEach(el => el.classList.remove('active'));    
     const activeSrc = event.target.getAttribute('data-item');
     const activeLi = event.target;
-    li.forEach(el => el.classList.remove('active'));
-    
-        activeLi.classList.remove('active');
    
-        activeLi.classList.add('active');
+    activeLi.classList.add('active');
     
     if(event.target.matches('li')){
          fetch(url)
@@ -48,9 +45,9 @@ console.log('li');
         .catch(error => {
             console.error(error)
         }) }
-      
+     
         const addCard = (data) =>{
-
+            
             nameHaupt.innerHTML = `
             <div class="name-card">
                     <h5 class="name-card">${data[activeSrc].name}</h5>
@@ -62,7 +59,6 @@ console.log('li');
             
                      
     });
-        
 
 const newFunc = async () => {
     try{
