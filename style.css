@@ -5,6 +5,8 @@
     ;
 }
 
+
+
 body {
     background-color: black;
 }
@@ -15,45 +17,25 @@ body {
     margin: auto;
     padding: 0;
     background-color: #ffffff;
-    
+    display: flex;
     gap: 50px;
 }
+.list-group{
+    width: 290px;
+}
 
-.card {
-height: 410px;
-}
-li{
-    
-    cursor: pointer;
-}
-.name-haupt{
-    border: 1px solid rgba(202, 198, 198, 0.776);
-    border-radius: 5px;
-    height: 300px;
-    width: 300px;
-}
-.name-card {
-    padding: 10px 0 5px 7px;
-}
-.name-texttop {
-    color: rgb(165, 158, 158);
-    padding-top:  5px;
-    padding-bottom: 20px;
-    font-weight: bold;
+
+
+.card{
+    max-height: 300px;
     
 }
 
-p {
-    padding-left: 7px;
-    padding-right: 15px;
+.card-body{
+    display: none;
 }
-.btin {
-    color: rgb(41, 107, 206);
-    font-weight: bold;
-    padding-left: 7px;
 
+.card-body.active{
+    display: block;
 }
-.active {
-    background-color: rgba(52, 129, 245, 0.74);
-    
-}
+
